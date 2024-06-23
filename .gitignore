@@ -10,6 +10,8 @@
 !.gitignore
 !/src/*.sv 
 !/src/*.v
+!/src/cpu/*.sv 
+!/src/cpu/*.v
 !/include/*.vh 
 !/tb/*.sv 
 !/tb/*.v
