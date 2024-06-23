@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="nes_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="cpu_types" />
+            <top_module name="glbl" />
+            <top_module name="nes_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="82,142.274799 us"></ZoomStartTime>
+      <ZoomEndTime time="82,224.614881 us"></ZoomEndTime>
+      <Cursor1Time time="82,152.007064 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="276"></NameColumnWidth>
+      <ValueColumnWidth column_width="112"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="21" />
+   <wvobject fp_name="/nes_tb/tb_clk" type="logic">
+      <obj_property name="ElementShortName">tb_clk</obj_property>
+      <obj_property name="ObjectShortName">tb_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/tb_reset" type="logic">
+      <obj_property name="ElementShortName">tb_reset</obj_property>
+      <obj_property name="ObjectShortName">tb_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/CLK_PERIOD" type="array">
+      <obj_property name="ElementShortName">CLK_PERIOD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CLK_PERIOD[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/sys_clock" type="logic">
+      <obj_property name="ElementShortName">sys_clock</obj_property>
+      <obj_property name="ObjectShortName">sys_clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/masterClk" type="logic">
+      <obj_property name="ElementShortName">masterClk</obj_property>
+      <obj_property name="ObjectShortName">masterClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/cpuClk" type="logic">
+      <obj_property name="ElementShortName">cpuClk</obj_property>
+      <obj_property name="ObjectShortName">cpuClk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/ramClk" type="logic">
+      <obj_property name="ElementShortName">ramClk</obj_property>
+      <obj_property name="ObjectShortName">ramClk</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/counter" type="array">
+      <obj_property name="ElementShortName">counter[3:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/RP2A03/PC" type="array">
+      <obj_property name="ElementShortName">PC[15:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/RP2A03/PC_next" type="array">
+      <obj_property name="ElementShortName">PC_next[15:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_next[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/RP2A03/currState" type="array">
+      <obj_property name="ElementShortName">currState[2:0]</obj_property>
+      <obj_property name="ObjectShortName">currState[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/RP2A03/nextState" type="array">
+      <obj_property name="ElementShortName">nextState[2:0]</obj_property>
+      <obj_property name="ObjectShortName">nextState[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/artixNES_BD/artixNES_i/RAM/clka" type="logic">
+      <obj_property name="ElementShortName">clka</obj_property>
+      <obj_property name="ObjectShortName">clka</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/artixNES_BD/artixNES_i/RAM/ena" type="logic">
+      <obj_property name="ElementShortName">ena</obj_property>
+      <obj_property name="ObjectShortName">ena</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/artixNES_BD/artixNES_i/RAM/wea" type="array">
+      <obj_property name="ElementShortName">wea[0:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/artixNES_BD/artixNES_i/RAM/addra" type="array">
+      <obj_property name="ElementShortName">addra[10:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/artixNES_BD/artixNES_i/RAM/dina" type="array">
+      <obj_property name="ElementShortName">dina[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/artixNES_BD/artixNES_i/RAM/douta" type="array">
+      <obj_property name="ElementShortName">douta[7:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/memSel/ramSel" type="logic">
+      <obj_property name="ElementShortName">ramSel</obj_property>
+      <obj_property name="ObjectShortName">ramSel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/memSel/addr" type="array">
+      <obj_property name="ElementShortName">addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/nes_tb/DUT/led0" type="logic">
+      <obj_property name="ElementShortName">led0</obj_property>
+      <obj_property name="ObjectShortName">led0</obj_property>
+   </wvobject>
+</wave_config>
