@@ -6,10 +6,10 @@
 // Create Date: 06/23/2024 01:47:52 AM
 // Design Name: 
 // Module Name: nes_tb
-// Project Name: 
-// Target Devices: 
+// Project Name: artixNES-EMU
+// Target Devices: Nexys A7-50T (XC7A50T-1CSG324C FPGA)
 // Tool Versions: 
-// Description: 
+// Description: Basic DUT reset testbench
 // 
 // Dependencies: 
 // 

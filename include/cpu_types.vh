@@ -39,7 +39,23 @@ package cpu_types;
       ROL_IMP   = 8'h2A, 
       BIT_ABS   = 8'h2C, 
       AND_ABS   = 8'h2D, 
-      ROL_ABS   = 8'h2E
+      ROL_ABS   = 8'h2E,
+
+      EOR_IMM   = 8'h49,
+
+
+
+
+      ADC_IMM   = 8'h69,
+      LDY_IMM   = 8'hA0,
+      LDX_IMM   = 8'hA2, 
+      LDA_IMM   = 8'hA9,
+
+      CPY_IMM   = 8'hC0,
+      CMP_IMM   = 8'hC9,
+
+      CPX_IMM   = 8'hE0,
+      SBC_IMM   = 8'hE9
 
 
 
@@ -47,7 +63,7 @@ package cpu_types;
     } opcode_t;
 
     // alu op type
-    typedef enum logic [2:0] {
+    typedef enum logic [3:0] {
       ALU_AND     = 4'h0,
       ALU_EOR     = 4'h1, 
       ALU_ORR     = 4'h2, 
@@ -55,7 +71,8 @@ package cpu_types;
       ALU_ADD     = 4'h4, 
       ALU_SUB     = 4'h5, 
       ALU_SR      = 4'h6, 
-      ALU_SL      = 4'h7
+      ALU_SL      = 4'h7,
+      ALU_CMP     = 4'h8
     } aluop_t;
 
     typedef struct packed {
@@ -73,7 +90,7 @@ package cpu_types;
     typedef enum logic [2:0] {
       INIT,
       DECODE,
-      BYTE2, 
+      IMM_BYTE, 
       BYTE3, 
       LD_DATA
     } cpustate_t;
