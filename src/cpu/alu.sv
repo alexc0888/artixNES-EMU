@@ -31,19 +31,37 @@ module alu
     output logic [7:0]  portOut, 
     output statusReg_t  statusUpdt
 );
-
-
-assign statusUpdt.negative = portOut[7];
-assign statusUpdt.zero     = (portOut == 8'h00);
-
-assign statusUpdt.carry    = (((portA[7] | portB[7]) & ~portOut[7]) && (aluOp == ALU_ADD)) || ((~portOut[7]) && ((aluOp == ALU_SUB) || (aluOp == ALU_CMP)));
-assign statusUpdt.overflow = (((portA[7] == portB[7]) && (portOut[7] != portA[7]) && (aluOp == ALU_ADD)) || 
-                              ((portA[7] != portB[7]) && (portOut[7] == portB[7]) && (aluOp == ALU_SUB)));
 // unused status flags in ALU
 assign statusUpdt.spacer    = status.spacer;
 assign statusUpdt.b_reak    = status.b_reak;
 assign statusUpdt.decimal   = status.decimal; 
 assign statusUpdt.interrupt = status.interrupt;
+
+// status update block 
+always_comb
+begin 
+    statusUpdt.negative = portOut[7];
+    statusUpdt.zero     = (portOut == 8'h00); 
+    // maintain unless ALU calls for a change
+    statusUpdt.carry    = status.carry; 
+    statusUpdt.overflow = status.overflow;
+    casez(aluOp)
+    ALU_ADD : 
+    begin 
+        statusUpdt.carry    = ((portA[7] | portB[7]) & ~portOut[7]); // res >= 255 means cout
+        statusUpdt.overflow = ((portA[7] == portB[7]) && (portOut[7] != portA[7]));
+    end
+    ALU_SUB, ALU_CMP : 
+    begin 
+        statusUpdt.carry    = ~portOut[7];
+        // technically this flag is unused by ALU_CMP, but we just won't listen to this status bit.
+        statusUpdt.overflow = (portA[7] != portB[7]) && (portOut[7] == portB[7]); 
+    end
+    // special carry set!
+    ALU_SR, ALU_ROR : statusUpdt.carry = portA[0];
+    ALU_SL, ALU_ROL : statusUpdt.carry = portA[7];
+    endcase
+end
 
 // Operations 
 always_comb 
@@ -57,13 +75,12 @@ begin
         ALU_PAS  : portOut = portB;
         ALU_ADD  : portOut = portA + portB + status.carry; 
         ALU_SUB  : portOut = portA - portB - ~status.carry;
-        ALU_SR   : portOut = portA >> portB; 
-        ALU_SL   : portOut = portA << portB;
+        ALU_SR   : portOut = portA >> 1; // for LSR instruction
+        ALU_SL   : portOut = portA << 1;           // for ASL instruction
         ALU_CMP  : portOut = portA - portB;
+        ALU_ROR  : portOut = (portA >> 1) | ({status.carry, 7'h00});
+        ALU_ROL  : portOut = (portA << 1) | ({7'h00, status.carry});
     endcase
 end
-
-
-
 
 endmodule 

@@ -42,20 +42,33 @@ package cpu_types;
       ROL_ABS   = 8'h2E,
 
       EOR_IMM   = 8'h49,
+      LSR_IMP   = 8'h4A,
 
-
+      CLI_IMP  = 8'h58,
 
 
       ADC_IMM   = 8'h69,
+      ROR_IMP   = 8'h6A,
+
+      DEY_IMP   = 8'h88,
+
       LDY_IMM   = 8'hA0,
       LDX_IMM   = 8'hA2, 
       LDA_IMM   = 8'hA9,
 
+      CLV_IMP   = 8'hB8,
+
       CPY_IMM   = 8'hC0,
+      INY_IMP   = 8'hC8,
       CMP_IMM   = 8'hC9,
+      DEX_IMP   = 8'hCA,
+
+      CLD_IMP   = 8'D8,
 
       CPX_IMM   = 8'hE0,
-      SBC_IMM   = 8'hE9
+      INX_IMP   = 8'hE8,
+      SBC_IMM   = 8'hE9, 
+      NOP_IMP   = 8'hEA
 
 
 
@@ -72,7 +85,9 @@ package cpu_types;
       ALU_SUB     = 4'h5, 
       ALU_SR      = 4'h6, 
       ALU_SL      = 4'h7,
-      ALU_CMP     = 4'h8
+      ALU_CMP     = 4'h8,
+      ALU_ROR     = 4'h9, 
+      ALU_ROL     = 4'hA
     } aluop_t;
 
     typedef struct packed {
@@ -91,7 +106,7 @@ package cpu_types;
       INIT,
       DECODE,
       IMM_BYTE, 
-      BYTE3, 
+      TOSS_BYTE, 
       LD_DATA
     } cpustate_t;
 
